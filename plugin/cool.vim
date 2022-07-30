@@ -74,7 +74,7 @@ function! s:StartHL()
 endfunction
 
 function! s:StopHL()
-    if !v:hlsearch || mode() isnot 'n'
+    if !v:hlsearch || mode() isnot 'n' || stridx(bufname(), "term://") == 0
         return
     else
         silent call feedkeys("\<Plug>(StopHL)", 'm')
